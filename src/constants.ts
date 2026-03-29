@@ -23,6 +23,8 @@ export interface CategoryComparison {
   decPercent: number;
   janAttain: number;
   janPercent: number;
+  febAttain: number;
+  febPercent: number;
 }
 
 export const JANUARY_SCHOOL_DATA: SchoolData[] = [
@@ -70,9 +72,9 @@ export const JANUARY_SCHOOL_DATA: SchoolData[] = [
 ];
 
 export const COMPARISON_DATA: CategoryComparison[] = [
-  { category: "Higher Secondary School", total: 1077, novAttain: 585, novPercent: 54.32, decAttain: 734, decPercent: 68.15, janAttain: 835, janPercent: 77.53 },
-  { category: "Middle School", total: 727, novAttain: 235, novPercent: 32.32, decAttain: 457, decPercent: 62.86, janAttain: 562, janPercent: 77.30 },
-  { category: "High School", total: 340, novAttain: 181, novPercent: 53.24, decAttain: 224, decPercent: 65.88, janAttain: 282, janPercent: 82.94 }
+  { category: "Higher Secondary School", total: 1077, novAttain: 585, novPercent: 54.32, decAttain: 734, decPercent: 68.15, janAttain: 835, janPercent: 77.53, febAttain: 945, febPercent: 87.74 },
+  { category: "Middle School", total: 727, novAttain: 235, novPercent: 32.32, decAttain: 457, decPercent: 62.86, janAttain: 562, janPercent: 77.30, febAttain: 635, febPercent: 87.35 },
+  { category: "High School", total: 340, novAttain: 181, novPercent: 53.24, decAttain: 224, decPercent: 65.88, janAttain: 282, janPercent: 82.94, febAttain: 305, febPercent: 89.71 }
 ];
 
 export const NOVEMBER_SCHOOL_DATA: SchoolData[] = JANUARY_SCHOOL_DATA.map(school => ({
@@ -91,8 +93,17 @@ export const DECEMBER_SCHOOL_DATA: SchoolData[] = JANUARY_SCHOOL_DATA.map(school
   notAttainMaths: Math.floor(school.totalStudents * 0.08),
 }));
 
+export const FEBRUARY_SCHOOL_DATA: SchoolData[] = JANUARY_SCHOOL_DATA.map(school => ({
+  ...school,
+  attainedBLO: Math.floor(school.totalStudents * 0.88),
+  notAttainTamil: Math.floor(school.totalStudents * 0.05),
+  notAttainEnglish: Math.floor(school.totalStudents * 0.06),
+  notAttainMaths: Math.floor(school.totalStudents * 0.03),
+}));
+
 export const OVERALL_TREND = [
   { month: "November", percentage: 46.63 },
   { month: "December", percentage: 65.63 },
-  { month: "January", percentage: 79.08 }
+  { month: "January", percentage: 79.08 },
+  { month: "February", percentage: 88.27 }
 ];
